@@ -8,13 +8,12 @@ import "../styles/index.css";
 //import your own components
 import SecondsCounter from "./component/SecondsCounter.jsx";
 
-let timer = 0;
+window.onload = () => {
+    let timer = -1;
+    let app = ReactDOM.createRoot(document.getElementById('app'));
 
-setInterval(() => {
-    timer++;
-    
-    //render your react application
-    ReactDOM.createRoot(document.getElementById('app')).render(<SecondsCounter timer={timer}/>);
-}, 1000)
-
-
+    setInterval(() => {
+        timer++;
+        app.render(<SecondsCounter timer={timer} />);
+    }, 1000)
+}
